@@ -16,7 +16,6 @@
 <!ELEMENT description (#PCDATA)>
 <!ELEMENT price (#PCDATA)>
 <!ELEMENT indicator (#PCDATA)>
-
 ]>
 
 
@@ -46,7 +45,7 @@
         and Smoked Sausage Patties, Turkey Sausage Patties or Thick-Sliced Bacon.
         ]]>
       </description>
-      <price>7.95</price>
+      <price currency="USD">7.95</price>
     </menuItem>
     <menuItem>
       <itemName>
