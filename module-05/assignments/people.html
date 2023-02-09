@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <ol id="people"></ol>
+        <script>
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () 
+            {
+                if (this.readyState == 4 && this.status == 200) 
+                {
+                    displayData(this.responseXML);
+                }
+            };
+
+            xhttp.open("GET", "people.xml", true);
+            xhttp.send();
+
+            function stringToNode(html)
+            {
+                const template = document.createElement(`template`);
+                html = html.trim();
+                template.innerHTML = html;
+                return template.content.firstChild;
+            }
+
+            function displayData(people_Doc) 
+            {
+                const listElement = document.getElementById(`people`);
+                const infoNodes = people_Doc.getElementsByTagName(`dataset`);
+                for (let index = 0; index < infoNodes.length; index++) 
+                {
+                    const infoNode = infoNodes[index];
+                    const listItem = stringToNode(`<li>
+                    <h2>${
+                            infoNode.getElementsByTagName(`first_name`)[0].childNodes[0]
+                            .nodeValue
+                        } 
+                        ${
+                        infoNode.getElementsByTagName(`last_name`)[0].childNodes[0]
+                        .nodeValue
+                        }
+                    </h2>
+                    <p>Email: ${infoNode.getElementsByTagName(`email`)[0].childNodes[0].nodeValue}</p>
+                    <p>Gender: ${infoNode.getElementsByTagName(`gender`)[0].childNodes[0].nodeValue}</p>
+                    <p>IP Address: ${infoNode.getElementsByTagName(`ip_address`)[0].childNodes[0].nodeValue}</p>
+                    </li>`);
+                listElement.appendChild(listItem);
+                }
+            }
+    </script>
+</body>
+</html>
