@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ <xs:element name="companies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="company" type="companyType" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+    <xs:complexType name="companyType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="address" type="adressType"/>
+      <xs:element name="employees" type="employeesType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="drugs" type="drugsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    </xs:complexType>	
+
+    <xs:complexType name="adressType">
+    <xs:sequence>
+      <xs:element name="street" type="xs:string"/>
+      <xs:element name="city" type="xs:string"/>
+      <xs:element name="region" type="xs:string"/>
+      <xs:element name="country" type="xs:string" />
+    </xs:sequence>
+    </xs:complexType>	
+
+        <xs:complexType name="employeesType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="firstName" type="xs:string"/>
+      <xs:element name="lastName" type="xs:string"/>
+      <xs:element name="empType" type="xs:string" />
+    </xs:sequence>
+    </xs:complexType>	
+
+      <xs:complexType name="drugsType">
+    <xs:sequence>
+      <xs:element name="manufacturer" type="xs:string"/>
+      <xs:element name="brand" type="xs:string"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="code" type="xs:string" />
+      <xs:element name="diagnosisCode" type="xs:string"/>
+      <xs:element name="diagnosisDescription" type="xs:string"/>
+      <xs:element name="qty" type="xs:string" />
+    </xs:sequence>
+    </xs:complexType>	
+
+
+</xs:schema>

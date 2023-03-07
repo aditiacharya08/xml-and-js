@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic</title>
+</head>
+<body>
+    <div >
+        <table width="40%" border="1" cellspacing="0" >
+            <tr>
+                <th>id</th>
+                <th>street</th>
+                <th>city</th>
+                <th>region</th>
+                <th>country</th>
+                <th>employees</th>
+                <th>drugs</th>
+            </tr>
+            <tbody id="data">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                // console.log(this.responseXML.getElementsByTagName('email')[1]);        
+                displayAllData(this.responseXML);
+            }
+        }
+        xhr.open("GET","clinic.xml",true);
+        xhr.send();
+
+        function displayAllData(xml){
+            const allCompany = xml.getElementsByTagName('company');
+            const divElement = document.getElementById('data');
+
+            for(let i = 0 ; i < allCompany.length; i++){
+                const company = allCompany[i];
+                const parseComp = parseCompany(company);
+                const companyElement = createCompany(parseComp);
+                divElement.append(companyElement);
+            }
+        }
+
+        function parseCompany(xml){
+            // console.log(xml);
+            const id = xml.getElementsByTagName('id')[0].childNodes[0].nodeValue;
+            const street = xml.getElementsByTagName('street')[0].childNodes[0].nodeValue;
+            const city = xml.getElementsByTagName('city')[0].childNodes[0].nodeValue;
+            const region = xml.getElementsByTagName('region')[0].childNodes[0].nodeValue;
+            const country = xml.getElementsByTagName('country')[0].childNodes[0].nodeValue;
+            noOfEmployee = xml.getElementsByTagName('employees');
+            noOfDrugs = xml.getElementsByTagName('drugs');
+            employees = [];
+            Drugs = [];
+            
+            for(i=0;i<noOfEmployee.length;i++){
+                const employee= {
+                    id: xml.getElementsByTagName('id')[i].childNodes[0].nodeValue,
+                    firstName: xml.getElementsByTagName('firstName')[i].childNodes[0].nodeValue,
+                    lastName: xml.getElementsByTagName('lastName')[i].childNodes[0].nodeValue,
+                    empType: xml.getElementsByTagName('empType')[i].childNodes[0].nodeValue
+
+                }
+                employees.push(employee);
+            }
+
+            for(j=0;j<noOfDrugs.length;j++){
+                const drug= {
+                    manufacturer: xml.getElementsByTagName('manufacturer')[j].childNodes[0].nodeValue,
+                    brand: xml.getElementsByTagName('brand')[j].childNodes[0].nodeValue,
+                    name: xml.getElementsByTagName('name')[j].childNodes[0].nodeValue,
+                    code: xml.getElementsByTagName('code')[j].childNodes[0].nodeValue,
+                    diagnosisCode: xml.getElementsByTagName('diagnosisCode')[j].childNodes[0].nodeValue,
+                    diagnosisDescription: xml.getElementsByTagName('diagnosisDescription')[j].childNodes[0].nodeValue,
+                    qty: xml.getElementsByTagName('qty')[j].childNodes[0].nodeValue,
+
+                }
+                Drugs.push(drug);
+            }
+
+            return {
+                id,street,city,country,region,employees,Drugs
+            };
+
+
+        }
+
+        function createCompany(company){
+            console.log(company.employees);
+
+            let content = `
+
+            <tr>
+                <td>${company.id}</td>
+                <td>${company.street}</td>
+                <td>${company.city}</td>
+                <td>${company.region}</td>
+                <td>${company.country}</td>
+                <td> 
+                <table width="40%" border="1" cellspacing="0" >
+            <tr>
+                <th>id</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>empType</th>
+
+            </tr>`;
+        
+
+            for(let x of company.employees){
+                content +=  
+            `
+            <tr>
+                <td>${x.id}</td>
+                <td>${x.firstName}</td>
+                <td>${x.lastName}</td>
+                <td>${x.empType}</td>
+
+            </tr>`;
+        }
+        content += `</table ></td>`;
+        
+        content += `<td><table border="1">
+            <tr>
+                <th>manufacturer</th>
+                <th>brand</th>
+                <th>name</th>
+                <th>code</th>
+                <th>diagnosisCode</th>
+                <th>diagnosisDescription</th>
+                <th>qty</th>
+            <tr>`;
+            
+                for(let y of company.Drugs){
+                content +=  
+            `
+            <tr>
+                <td>${y.manufacturer}</td>
+                <td>${y.brand}</td>
+                <td>${y.name}</td>
+                <td>${y.code}</td>
+                <td>${y.diagnosisCode}</td>
+                <td>${y.diagnosisDescription}</td>
+                <td>${y.qty}</td>
+
+            </tr>`;
+        }
+
+               content += `</table></td></tr>`;
+
+            return stringToNode(content);
+        }
+
+        function stringToNode(html){
+            const template = document.createElement(`template`);
+            html = html.trim();
+            template.innerHTML = html;
+            return template.content.firstChild;
+        }
+    </script>
+</body>
+</html>
