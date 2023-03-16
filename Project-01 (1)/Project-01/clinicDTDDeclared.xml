@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE companies [
-  <!ELEMENT companies (company+)>
+  <!ELEMENT companies (company*)>
   <!ELEMENT company (id, address, employees+, drugs+)>
   <!ELEMENT id (#PCDATA)>
   <!ELEMENT address (street, city, region, country)>
@@ -1102,4 +1102,4 @@
       <qty>79</qty>
     </drugs>
   </company>
-</companies>
+</companies> 

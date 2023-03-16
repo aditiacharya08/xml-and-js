@@ -16,4 +16,4 @@ I have created the XML and then I started working on DTD for the created XML.
 Step 4 : I have Created the DTD for the Above XML file and validated using the tool and there were no errors found 
 ![DTD Validation Screenshot of DTD](./DTD_Validation.png)
 
-There are multiple elements having same name which made me confused to convert .
+There are multiple elements having same name which made me confused to convert . 

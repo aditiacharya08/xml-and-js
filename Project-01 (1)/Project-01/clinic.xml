@@ -48,7 +48,7 @@
     <drugs>
       <manufacturer>Safeway, Inc.</manufacturer>
       <brand>Adult Cough Relief DM</brand>
-      <name>Dextromethorphan HBr</name>
+      <name>Dextromethorphan HBr</name>x
       <code>21130-383</code>
       <diagnosisCode>S7011</diagnosisCode>
       <diagnosisDescription>Contusion of right thigh</diagnosisDescription>
@@ -1082,3 +1082,4 @@
     </drugs>
   </company>
 </companies>
+ 
