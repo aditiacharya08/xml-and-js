@@ -35,7 +35,6 @@ const main = async() => {
         const result = await convertToFeet(a);
         logResult(a, result);
     }
-    
     console.log("Finish");
 }
 main();
