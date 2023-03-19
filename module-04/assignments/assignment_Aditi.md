@@ -14,3 +14,8 @@
 - inside size columns (small, medium, large, and extra large) display subtable with 2 columns: color and image
 
 Create `module-4/assignments/assignment_YOURNAME.md` and explain your thought process in it. Add screenshots of each step to the file (Refer `week-1/assignments/evaluation-1.md` on how to add image to md file)
+
+------Thought process: This project taught me how to use control structures in XSL files.It was a innovative to learn xsl as we learned how to use html to make its styling better  . 
+These tags were used for this assignment, which is listed below:
+!— "xsl:for-each" —>!— "xsl:value-of" —>!— "xsl:if" —>!— "xsl:choose" —>!— "xsl:when" —>
+[image info](Assignment.png)
