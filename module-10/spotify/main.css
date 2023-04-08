@@ -2,8 +2,8 @@
   max-width: 100%;
   overflow: hidden;
   display: flex;
-  background-color: #47ad6c; /* Changed the shade of green again */
-  color: white;
+  background-color: #b094aa; /* Changed the shade of green again */
+  color: rgb(136, 15, 128);
   border-radius: 8px; /* Increased the border radius */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added a subtle box shadow */
 }

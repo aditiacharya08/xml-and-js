@@ -2,8 +2,8 @@
   max-width: 100%;
   overflow: hidden;
   display: flex;
-  background-color: #4daf64;
-  color: white;
+  background-color: #965390;
+  color: rgb(122, 102, 148);
 }
 
 .genre-card:not(:last-child) {
