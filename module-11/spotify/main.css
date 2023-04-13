@@ -2,16 +2,18 @@
   max-width: 100%;
   overflow: hidden;
   display: flex;
-  background-color: #965390;
-  color: rgb(122, 102, 148);
+  background-color: #b094aa; /* Changed the shade of green again */
+  color: rgb(136, 15, 128);
+  border-radius: 8px; /* Increased the border radius */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added a subtle box shadow */
 }
 
 .genre-card:not(:last-child) {
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* Increased the margin again */
 }
 
 .genre-card > div {
-  padding: 10px 20px;
+  padding: 14px 24px; /* Increased the padding again */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -19,18 +21,19 @@
 
 .genre-card > div > a {
   color: white;
-  font-weight: bold;
+  font-weight: 500; /* Reduced the font weight further */
+  text-decoration: underline; /* Added underline to the link */
 }
 
 ol {
   list-style: none;
-  margin: 0;
+  margin: 6px; /* Increased the margin */
   padding: 0;
   display: flex;
   overflow: auto;
   max-width: 100%;
+  white-space: nowrap; /* Added to prevent line wrapping in the list */
 }
-
 form {
   margin-bottom: 15px;
 }
