@@ -1,0 +1,50 @@
+body{
+    margin: 20px 20px;
+    background-color: lightcyan;
+    font-family:calibri;
+}
+
+ul{
+    list-style: none;
+    margin: 1px;
+    padding: 0;
+}
+h1{
+    text-align: center;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+#results{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card{
+    width: calc(25% - 4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    padding-bottom: 20px;
+}
+
+h2{
+    color:rgb(220, 110, 165);
+}
+
+
+h4{
+    font-family: cambria;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+}
+
+p{
+    margin-top: 0;
+    padding-top: 0;
+}
